@@ -1,0 +1,27 @@
+{
+  "name": "spy-ecom-3",
+  "version": "1.0.0",
+  "description": "Facebook Ads Library Scraper com Playwright para contar anúncios ativos",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node index.js",
+    "playwright:install": "npx playwright install --with-deps",
+    "start": "node index.js"
+  },
+  "keywords": ["facebook", "ads", "scraper", "playwright", "monitoring"],
+  "author": "Spy Ecom",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.3.1",
+    "node-cron": "^3.0.3",
+    "fs-extra": "^11.1.1",
+    "playwright": "^1.40.0",
+    "chart.js": "^4.4.0",
+    "uuid": "^9.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

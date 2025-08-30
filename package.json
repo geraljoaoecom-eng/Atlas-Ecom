@@ -1,0 +1,37 @@
+{
+  "name": "atlas-ecom",
+  "version": "1.0.0",
+  "description": "Atlas Ecom - Monitor Inteligente de Bibliotecas Facebook Ads com Playwright",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node index.js",
+    "playwright:install": "npx playwright install --with-deps",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "atlas",
+    "ecom",
+    "facebook",
+    "ads",
+    "scraper",
+    "playwright",
+    "monitoring",
+    "libraries"
+  ],
+  "author": "Atlas Ecom",
+  "license": "MIT",
+  "dependencies": {
+    "chart.js": "^4.4.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "fs-extra": "^11.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "node-cron": "^3.0.3",
+    "playwright": "^1.40.0",
+    "uuid": "^9.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

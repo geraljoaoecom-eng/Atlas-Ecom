@@ -1,0 +1,1158 @@
+[
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T11:05:27.619Z",
+    "pageId": "2830484707136614",
+    "country": "USA",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "Não foi possível encontrar container de resultados"
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T11:08:36.217Z",
+    "pageId": "unknown",
+    "country": "unknown",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "URL inválida: URL inválida: não foi possível extrair o page ID"
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T11:09:59.009Z",
+    "pageId": "unknown",
+    "country": "unknown",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "URL inválida: URL inválida: não foi possível extrair o page ID"
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T11:16:48.451Z",
+    "pageId": "search_rafflehouse_com",
+    "country": "MULTI",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "Não foi possível encontrar container de resultados"
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T11:50:41.991Z",
+    "pageId": "search_rafflehouse_com",
+    "country": "MULTI",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "Não foi possível encontrar container de resultados"
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T11:51:27.133Z",
+    "pageId": "search_rafflehouse_com",
+    "country": "MULTI",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "Não foi possível encontrar container de resultados"
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T11:52:21.431Z",
+    "pageId": "search_rafflehouse_com",
+    "country": "MULTI",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "Não foi possível encontrar container de resultados"
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T12:43:17.866Z",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "Não foi possível encontrar container de resultados"
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T12:43:17.871Z",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "Não foi possível encontrar container de resultados"
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T12:46:55.358Z",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "Não foi possível encontrar container de resultados"
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T12:50:46.716Z",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "Não foi possível encontrar container de resultados"
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T12:56:03.136Z",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "Não foi possível encontrar container de resultados"
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T13:03:44.067Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 210,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T13:03:44.067Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 210,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T13:54:40.327Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 270,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T13:54:40.327Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 270,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T13:54:40.327Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 280,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T13:54:40.327Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 280,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T13:54:54.127Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 270,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T13:54:54.127Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 270,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T13:54:54.127Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 280,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T13:54:54.127Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 280,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T13:54:55.823Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 270,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T13:54:55.823Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 270,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T13:54:55.823Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 280,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T13:54:55.823Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 280,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:12:24.680Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "page.evaluate: Target page, context or browser has been closed",
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:12:24.680Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "page.evaluate: Target page, context or browser has been closed",
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:12:24.680Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "page.evaluate: Target page, context or browser has been closed",
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:12:24.680Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "page.evaluate: Target page, context or browser has been closed",
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:12:24.680Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "page.evaluate: Target page, context or browser has been closed",
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:34:44.864Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:34:44.864Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:34:44.864Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:36:20.355Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:36:20.355Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:36:20.355Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:37:33.078Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:37:33.078Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:37:33.078Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:38:30.882Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:38:30.882Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:38:30.882Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:38:32.256Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:38:32.256Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:38:32.256Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:38:32.330Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:38:32.330Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:38:32.330Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:38:35.731Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:38:35.731Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:38:35.731Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:43:12.715Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:43:47.232Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:43:57.358Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:44:15.678Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:46:33.816Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:46:54.592Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:47:13.395Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:47:41.502Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:48:19.742Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:48:19.742Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:48:19.742Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "page.evaluate: Target page, context or browser has been closed",
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:48:19.742Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "page.evaluate: Target page, context or browser has been closed",
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:48:19.745Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:48:19.745Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:48:19.745Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:48:19.745Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:48:19.745Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "page.evaluate: Target page, context or browser has been closed",
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:51:57.275Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:51:57.275Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:51:57.275Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "page.evaluate: Target page, context or browser has been closed",
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:51:57.275Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "page.evaluate: Target page, context or browser has been closed",
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:51:57.275Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:51:57.275Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:52:10.288Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:55:29.025Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:55:29.025Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:55:29.025Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "page.evaluate: Target page, context or browser has been closed",
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:55:29.025Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "page.evaluate: Target page, context or browser has been closed",
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:55:29.025Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:55:29.025Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:55:29.025Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:58:59.782Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "page.evaluate: Target page, context or browser has been closed",
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:58:59.782Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 0,
+    "scannedFully": false,
+    "error": "page.evaluate: Target page, context or browser has been closed",
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:58:59.782Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:58:59.782Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:58:59.782Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:58:59.782Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:58:59.782Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:58:59.782Z",
+    "pageId": "77978885595",
+    "country": "MULTI",
+    "activeAds": 9999,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:59:28.936Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:59:28.936Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:59:28.936Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:59:28.936Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:59:28.936Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:59:28.936Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:59:29.943Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:59:29.943Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:59:29.943Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:59:29.943Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:59:29.943Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T14:59:29.943Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T15:04:39.218Z",
+    "pageId": "77978885595",
+    "country": "MULTI",
+    "activeAds": 9999,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T15:07:00.237Z",
+    "pageId": "77978885595",
+    "country": "MULTI",
+    "activeAds": 9999,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T15:15:54.562Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T15:15:54.562Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T15:15:54.562Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T15:15:54.562Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T15:15:54.562Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T15:15:54.562Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T15:15:54.562Z",
+    "pageId": "77978885595",
+    "country": "MULTI",
+    "activeAds": 9999,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T16:22:10.730Z",
+    "pageId": "unknown",
+    "country": "UNKNOWN",
+    "activeAds": 320,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T16:22:11.099Z",
+    "pageId": "77978885595",
+    "country": "MULTI",
+    "activeAds": 9999,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "date": "2025-08-26",
+    "ts": "2025-08-26T16:23:15.409Z",
+    "pageId": "77978885595",
+    "country": "MULTI",
+    "activeAds": 9999,
+    "scannedFully": true,
+    "error": null,
+    "message": null
+  },
+  {
+    "ts": "2025-08-26T16:46:09.180Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=77978885595",
+    "count": 620,
+    "source": "regex-text"
+  },
+  {
+    "ts": "2025-08-26T16:46:41.454Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=101140592291760",
+    "count": 2,
+    "source": "regex-text"
+  },
+  {
+    "ts": "2025-08-26T16:47:05.221Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100511556154097",
+    "count": 11,
+    "source": "regex-text"
+  },
+  {
+    "ts": "2025-08-26T16:52:13.109Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100511556154097",
+    "count": 11,
+    "source": "regex-text"
+  }
+]

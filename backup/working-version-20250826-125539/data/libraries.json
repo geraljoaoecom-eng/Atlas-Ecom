@@ -1,0 +1,72 @@
+[
+  {
+    "id": "bdeafafc-974e-4ad8-834a-9c33876ed804",
+    "name": "teste",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "notes": "teste",
+    "status": "active",
+    "lastActiveAds": 320,
+    "lastUpdate": "2025-08-26T15:15:54.561Z",
+    "createdAt": "2025-08-26T14:06:09.291Z"
+  },
+  {
+    "id": "63a15124-634b-4d32-874d-fa6d8efcfda5",
+    "name": "teste",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "notes": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "status": "active",
+    "lastActiveAds": 320,
+    "lastUpdate": "2025-08-26T15:15:54.561Z",
+    "createdAt": "2025-08-26T14:08:03.365Z"
+  },
+  {
+    "id": "e842de5d-1cd5-461a-90ec-06a27e9a8442",
+    "name": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "notes": "",
+    "status": "active",
+    "lastActiveAds": 320,
+    "lastUpdate": "2025-08-26T15:15:54.561Z",
+    "createdAt": "2025-08-26T14:27:21.968Z"
+  },
+  {
+    "id": "52da311a-ba66-4533-8784-2db234e786ea",
+    "name": "teste1",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "notes": "tese",
+    "status": "active",
+    "lastActiveAds": 320,
+    "lastUpdate": "2025-08-26T15:15:54.561Z",
+    "createdAt": "2025-08-26T14:39:43.620Z"
+  },
+  {
+    "id": "13d805b2-564a-4b3a-9b77-fb0e2ad69b39",
+    "name": "teste1",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "notes": "tese",
+    "status": "active",
+    "lastActiveAds": 320,
+    "lastUpdate": "2025-08-26T15:15:54.561Z",
+    "createdAt": "2025-08-26T14:40:17.954Z"
+  },
+  {
+    "id": "1865e7c5-3368-4758-bd3c-846ad85c2531",
+    "name": "TESTE_VERIFICACAO",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "notes": "Teste da verificação automática",
+    "status": "active",
+    "lastActiveAds": 320,
+    "lastUpdate": "2025-08-26T16:22:10.730Z",
+    "createdAt": "2025-08-26T14:48:40.750Z"
+  },
+  {
+    "id": "c56cdc9f-8db1-42b8-9061-c4c76b0898b0",
+    "name": "pet",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=77978885595",
+    "notes": "",
+    "status": "active",
+    "lastActiveAds": 9999,
+    "lastUpdate": "2025-08-26T16:23:15.408Z",
+    "createdAt": "2025-08-26T15:01:11.587Z"
+  }
+]

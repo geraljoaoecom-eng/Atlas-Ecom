@@ -1,0 +1,751 @@
+[
+  {
+    "ts": "2025-08-26T21:12:50.673Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100511556154097",
+    "count": 13,
+    "source": "regex-text"
+  },
+  {
+    "ts": "2025-08-26T21:13:32.051Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100511556154097",
+    "count": 13,
+    "source": "regex-text"
+  },
+  {
+    "ts": "2025-08-26T21:30:46.363Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=PT&view_all_page_id=10051155615409",
+    "count": 0,
+    "source": "regex-text"
+  },
+  {
+    "ts": "2025-08-26T21:31:24.506Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100511556154097",
+    "count": 13,
+    "source": "regex-text"
+  },
+  {
+    "ts": "2025-08-26T21:31:35.180Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=179911042024533",
+    "count": 30,
+    "source": "regex-text"
+  },
+  {
+    "ts": "2025-08-26T21:32:05.055Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=1597621223875861",
+    "count": 350,
+    "source": "regex-text"
+  },
+  {
+    "ts": "2025-08-26T21:33:12.982Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100511556154097",
+    "count": 13,
+    "source": "regex-text"
+  },
+  {
+    "ts": "2025-08-26T21:33:22.597Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=179911042024533",
+    "count": 30,
+    "source": "regex-text"
+  },
+  {
+    "ts": "2025-08-26T21:33:48.518Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=PT&view_all_page_id=10051155615409",
+    "count": 0,
+    "source": "regex-text"
+  },
+  {
+    "ts": "2025-08-26T21:42:33.797Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100511556154097",
+    "count": 14,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-26T21:43:21.481Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100511556154097",
+    "count": 14,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-26T22:13:30.669Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100511556154097",
+    "count": 14,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-26T22:31:23.217Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=1702893889960434",
+    "count": 0,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-26T22:59:35.798Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=179911042024533",
+    "count": 30,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-29T20:20:00.856Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 3,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-29T20:25:00.210Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 3,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-29T20:30:00.768Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 3,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-29T20:35:00.421Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 3,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-29T20:40:00.013Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 3,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-29T21:35:00.005Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 3,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-29T21:40:00.588Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 3,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-29T21:45:00.200Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 3,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-29T21:50:00.776Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 3,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-29T21:55:00.376Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 3,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-29T22:00:00.958Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 3,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-29T22:05:00.550Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 3,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-29T22:10:00.209Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 3,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-29T22:15:00.825Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-29T22:20:00.511Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-29T22:25:00.108Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-29T22:30:00.700Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-29T22:35:00.412Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-29T22:35:00.412Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 42,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-29T22:40:00.160Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-29T22:40:00.160Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 42,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-29T22:50:00.306Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 0,
+    "source": "not-found"
+  },
+  {
+    "ts": "2025-08-29T22:50:00.306Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 0,
+    "source": "not-found"
+  },
+  {
+    "ts": "2025-08-29T22:55:00.242Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-29T22:55:00.242Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 42,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-29T23:15:00.512Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-29T23:15:00.512Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 42,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-29T23:25:00.728Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 0,
+    "source": "not-found"
+  },
+  {
+    "ts": "2025-08-29T23:25:00.728Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 0,
+    "source": "not-found"
+  },
+  {
+    "ts": "2025-08-29T23:35:00.843Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-29T23:35:00.843Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 46,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-29T23:40:00.843Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-29T23:40:00.843Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 46,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-29T23:40:00.843Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "count": 330,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T00:00:00.171Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T00:00:00.171Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 46,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T00:00:00.171Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "count": 330,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T00:05:00.741Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T00:05:00.741Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 46,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T00:05:00.741Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "count": 330,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T00:10:00.251Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T00:10:00.251Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 46,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T00:10:00.251Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "count": 330,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T00:25:00.806Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T00:25:00.806Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 46,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T00:25:00.806Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "count": 330,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T00:30:00.158Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T00:30:00.158Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 46,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T00:30:00.158Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "count": 330,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T00:45:00.481Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T00:45:00.481Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 46,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T00:45:00.481Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "count": 330,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T00:45:00.481Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=14856729724",
+    "count": 450,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T00:50:00.371Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T00:50:00.371Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 46,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T00:50:00.371Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "count": 330,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T00:50:00.371Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=14856729724",
+    "count": 450,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T01:10:00.541Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T01:10:00.541Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 46,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T01:10:00.541Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "count": 330,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T01:10:00.541Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=14856729724",
+    "count": 450,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T01:15:00.920Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T01:15:00.920Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 46,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T01:15:00.920Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "count": 330,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T01:15:00.920Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=14856729724",
+    "count": 450,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T01:25:00.404Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T01:25:00.404Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 46,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T01:25:00.404Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "count": 0,
+    "source": "not-found"
+  },
+  {
+    "ts": "2025-08-30T01:25:00.404Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=14856729724",
+    "count": 450,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T01:35:00.169Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T01:35:00.169Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 46,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T01:35:00.169Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "count": 330,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T01:35:00.169Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=14856729724",
+    "count": 450,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T01:40:00.024Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T01:40:00.024Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 46,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T01:40:00.024Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "count": 330,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T01:40:00.024Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=14856729724",
+    "count": 450,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T01:45:00.205Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T01:45:00.205Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 46,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T01:45:00.205Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "count": 330,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T01:45:00.205Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=14856729724",
+    "count": 450,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T01:50:00.766Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T01:50:00.766Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 46,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T01:50:00.766Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "count": 330,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T01:50:00.766Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=14856729724",
+    "count": 450,
+    "source": "cache"
+  },
+  {
+    "ts": "2025-08-30T02:10:00.444Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T02:10:00.444Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 46,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T02:10:00.444Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "count": 330,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T02:10:00.444Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=14856729724",
+    "count": 450,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T02:40:00.514Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "count": 4,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T02:40:00.514Z",
+    "type": "url",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "count": 46,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T02:40:00.514Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "count": 330,
+    "source": "fast-selector"
+  },
+  {
+    "ts": "2025-08-30T02:40:00.514Z",
+    "type": "url",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=14856729724",
+    "count": 450,
+    "source": "fast-selector"
+  }
+]

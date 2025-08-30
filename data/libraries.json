@@ -1,0 +1,100 @@
+[
+  {
+    "id": "1756493816541",
+    "name": "pop",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=145608108896911",
+    "observations": "",
+    "notes": [],
+    "folderId": "1756246005829",
+    "lastActiveAds": 4,
+    "lastUpdate": "2025-08-30T02:40:00.514Z",
+    "status": "pending",
+    "createdAt": "2025-08-29T18:56:56.541Z",
+    "history": [
+      {
+        "date": "2025-08-29",
+        "count": 4,
+        "timestamp": "2025-08-29T23:15:00.512Z",
+        "lastUpdate": "2025-08-29T23:40:00.843Z"
+      },
+      {
+        "date": "2025-08-30",
+        "count": 4,
+        "timestamp": "2025-08-30T00:00:00.171Z",
+        "lastUpdate": "2025-08-30T02:40:00.514Z"
+      }
+    ],
+    "updatedAt": "2025-08-30T00:57:29.954Z"
+  },
+  {
+    "id": "1756506899654",
+    "name": "43",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=100879042545446",
+    "observations": "",
+    "notes": [],
+    "folderId": null,
+    "lastActiveAds": 46,
+    "lastUpdate": "2025-08-30T02:40:00.514Z",
+    "status": "pending",
+    "createdAt": "2025-08-29T22:34:59.654Z",
+    "history": [
+      {
+        "date": "2025-08-29",
+        "count": 46,
+        "timestamp": "2025-08-29T23:15:00.512Z",
+        "lastUpdate": "2025-08-29T23:40:00.843Z"
+      },
+      {
+        "date": "2025-08-30",
+        "count": 46,
+        "timestamp": "2025-08-30T00:00:00.171Z",
+        "lastUpdate": "2025-08-30T02:40:00.514Z"
+      }
+    ]
+  },
+  {
+    "id": "1756510579290",
+    "name": "testerare",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&q=rafflehouse.com&search_type=keyword_unordered",
+    "observations": "",
+    "notes": [],
+    "folderId": null,
+    "lastActiveAds": 330,
+    "lastUpdate": "2025-08-30T02:40:00.514Z",
+    "status": "pending",
+    "createdAt": "2025-08-29T23:36:19.290Z",
+    "history": [
+      {
+        "date": "2025-08-29",
+        "count": 330,
+        "timestamp": "2025-08-29T23:40:00.843Z"
+      },
+      {
+        "date": "2025-08-30",
+        "count": 330,
+        "timestamp": "2025-08-30T00:00:00.171Z",
+        "lastUpdate": "2025-08-30T02:40:00.514Z"
+      }
+    ]
+  },
+  {
+    "id": "1756513796922",
+    "name": "GAP",
+    "url": "https://web.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=14856729724",
+    "observations": "",
+    "notes": [],
+    "folderId": null,
+    "lastActiveAds": 450,
+    "lastUpdate": "2025-08-30T02:40:00.514Z",
+    "status": "active",
+    "createdAt": "2025-08-30T00:29:56.922Z",
+    "history": [
+      {
+        "date": "2025-08-30",
+        "count": 450,
+        "timestamp": "2025-08-30T00:30:33.960Z",
+        "lastUpdate": "2025-08-30T02:40:00.514Z"
+      }
+    ]
+  }
+]
