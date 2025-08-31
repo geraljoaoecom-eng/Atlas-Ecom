@@ -74,6 +74,20 @@ async function scrapeFacebookAdsLibrary(url) {
             });
         }
         
+        // Se ainda falhar, tentar com método POST
+        if (!response.ok) {
+            response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'User-Agent': getRandomUserAgent()
+                },
+                body: 'action=view',
+                redirect: 'follow',
+                signal: controller.signal
+            });
+        }
+        
         clearTimeout(timeoutId);
         
         if (!response.ok) {
