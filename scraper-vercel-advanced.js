@@ -36,12 +36,21 @@ async function scrapeFacebookAdsLibrary(url) {
     try {
         console.log(`🔍 Fazendo scraping direto de: ${url}`);
         
-        // Headers simples para parecer um browser normal
+        // Headers para parecer um browser real
         const headers = {
             'User-Agent': getRandomUserAgent(),
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
             'Accept-Language': 'pt-PT,pt;q=0.9,en;q=0.8',
-            'Referer': 'https://www.facebook.com/'
+            'Accept-Encoding': 'gzip, deflate, br',
+            'DNT': '1',
+            'Connection': 'keep-alive',
+            'Upgrade-Insecure-Requests': '1',
+            'Sec-Fetch-Dest': 'document',
+            'Sec-Fetch-Mode': 'navigate',
+            'Sec-Fetch-Site': 'none',
+            'Cache-Control': 'max-age=0',
+            'Referer': 'https://www.facebook.com/',
+            'Origin': 'https://www.facebook.com'
         };
         
         // Fazer request para o Facebook com timeout e técnicas anti-detecção
