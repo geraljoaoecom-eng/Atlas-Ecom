@@ -925,7 +925,7 @@ if (fs.pathExistsSync(librariesFile)) {
 // Extrair URLs das bibliotecas
 const libraryUrls = libraries.map(lib => lib.url).filter(url => url);
 
-// Rota de teste para scraping manual
+// Rota de teste para scraping manual (sem autenticação para debug)
 app.post('/api/test-scraping', async (req, res) => {
   try {
     console.log('🧪 Teste de scraping manual iniciado...');
@@ -952,6 +952,39 @@ app.post('/api/test-scraping', async (req, res) => {
     console.error('❌ Erro no teste de scraping:', error);
     res.status(500).json({ 
       error: 'Erro no teste de scraping',
+      message: error.message 
+    });
+  }
+});
+
+// Rota de teste pública para verificar scraping (sem autenticação)
+app.get('/api/debug-scraping', async (req, res) => {
+  try {
+    console.log('🔍 Debug de scraping público...');
+    
+    if (libraryUrls.length === 0) {
+      return res.json({ error: 'Nenhuma URL para testar' });
+    }
+    
+    // Testar apenas a primeira URL
+    const testUrl = libraryUrls[0];
+    console.log(`🔍 Testando URL: ${testUrl}`);
+    
+    const result = await getCountFromUrl(testUrl);
+    console.log('🔍 Resultado do debug:', result);
+    
+    res.json({
+      success: true,
+      url: testUrl,
+      result: result,
+      timestamp: new Date().toISOString(),
+      totalLibraries: libraryUrls.length
+    });
+    
+  } catch (error) {
+    console.error('❌ Erro no debug de scraping:', error);
+    res.status(500).json({ 
+      error: 'Erro no debug de scraping',
       message: error.message 
     });
   }
