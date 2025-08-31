@@ -1,55 +1,93 @@
-import ScrapingBee from 'scrapingbee';
+// Scraper que funciona diretamente no Vercel
+// Usa fetch nativo para fazer scraping do Facebook
 
-// Configuração do ScrapingBee
-const API_KEY = process.env.SCRAPINGBEE_API_KEY || 'demo'; // Usar 'demo' para testes gratuitos
-const client = new ScrapingBee(API_KEY);
-
-// Função para fazer scraping real do Facebook Ads Library
+// Função para fazer scraping direto do Facebook Ads Library
 async function scrapeFacebookAdsLibrary(url) {
     try {
-        console.log(`🔍 Fazendo scraping real de: ${url}`);
+        console.log(`🔍 Fazendo scraping direto de: ${url}`);
         
-        const response = await client.get({
-            url: url,
-            params: {
-                // Configurações para o Facebook
-                'premium_proxy': 'true',
-                'country_code': 'pt',
-                'render_js': 'false',
-                'wait': '5000', // Esperar 5 segundos para carregar
-                'block_resources': 'false'
+        // Configurar headers para parecer um browser real
+        const headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language': 'pt-PT,pt;q=0.9,en;q=0.8',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'DNT': '1',
+            'Connection': 'keep-alive',
+            'Upgrade-Insecure-Requests': '1',
+            'Sec-Fetch-Dest': 'document',
+            'Sec-Fetch-Mode': 'navigate',
+            'Sec-Fetch-Site': 'none',
+            'Cache-Control': 'max-age=0'
+        };
+        
+        // Fazer request para o Facebook
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: headers,
+            redirect: 'follow'
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const html = await response.text();
+        console.log(`✅ Scraping bem-sucedido, HTML obtido: ${html.length} caracteres`);
+        
+        // Extrair número de resultados usando regex
+        const resultCount = extractResultCount(html);
+        console.log(`📊 Número de resultados extraído: ${resultCount}`);
+        
+        return {
+            success: true,
+            count: resultCount,
+            source: 'vercel-direct-scraping',
+            html: html.substring(0, 500) // Primeiros 500 chars para debug
+        };
+        
+    } catch (error) {
+        console.error(`❌ Erro no scraping direto: ${error.message}`);
+        
+        // Fallback: tentar com método alternativo
+        return await scrapeWithFallback(url);
+    }
+}
+
+// Método alternativo de scraping
+async function scrapeWithFallback(url) {
+    try {
+        console.log(`🔄 Tentando método alternativo para: ${url}`);
+        
+        // Tentar com headers mais simples
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (compatible; FacebookBot/1.0)',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
             }
         });
         
-        if (response.success) {
-            const html = response.data.toString();
-            console.log(`✅ Scraping bem-sucedido, HTML obtido: ${html.length} caracteres`);
-            
-            // Extrair número de resultados usando regex
-            const resultCount = extractResultCount(html);
-            console.log(`📊 Número de resultados extraído: ${resultCount}`);
-            
-            return {
-                success: true,
-                count: resultCount,
-                source: 'scrapingbee-real',
-                html: html.substring(0, 500) // Primeiros 500 chars para debug
-            };
-        } else {
-            console.error(`❌ Erro no ScrapingBee: ${response.message}`);
-            return {
-                success: false,
-                error: response.message,
-                source: 'scrapingbee-error'
-            };
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
         
+        const html = await response.text();
+        const resultCount = extractResultCount(html);
+        
+        return {
+            success: true,
+            count: resultCount,
+            source: 'vercel-fallback-scraping',
+            html: html.substring(0, 500)
+        };
+        
     } catch (error) {
-        console.error(`❌ Erro geral no scraping: ${error.message}`);
+        console.error(`❌ Erro no método alternativo: ${error.message}`);
         return {
             success: false,
             error: error.message,
-            source: 'scrapingbee-exception'
+            source: 'vercel-fallback-error'
         };
     }
 }
@@ -62,7 +100,9 @@ function extractResultCount(html) {
             /~?(\d+(?:[.,]\d+)?)\s+(?:resultados|results|résultats)/i,
             /(\d+(?:[.,]\d+)?)\s+(?:resultados|results|résultats)/i,
             /resultados?\s*[~:]\s*(\d+(?:[.,]\d+)?)/i,
-            /results?\s*[~:]\s*(\d+(?:[.,]\d+)?)/i
+            /results?\s*[~:]\s*(\d+(?:[.,]\d+)?)/i,
+            /(\d+)\s*resultados?/i,
+            /(\d+)\s*results?/i
         ];
         
         for (const pattern of patterns) {
@@ -76,12 +116,23 @@ function extractResultCount(html) {
             }
         }
         
-        // Fallback: procurar por números seguidos de "resultados"
-        const fallbackMatch = html.match(/(\d+)\s*resultados?/i);
-        if (fallbackMatch) {
-            const count = parseInt(fallbackMatch[1]);
-            console.log(`✅ Fallback encontrado: ${count} resultados`);
-            return count;
+        // Procurar por números em contexto de resultados
+        const contextPatterns = [
+            /resultados?\s*[~:]\s*(\d+)/i,
+            /results?\s*[~:]\s*(\d+)/i,
+            /(\d+)\s*anúncios?/i,
+            /(\d+)\s*ads?/i
+        ];
+        
+        for (const pattern of contextPatterns) {
+            const match = html.match(pattern);
+            if (match && match[1]) {
+                const count = parseInt(match[1]);
+                if (!isNaN(count) && count > 0) {
+                    console.log(`✅ Padrão de contexto encontrado: "${match[0]}" -> ${count}`);
+                    return count;
+                }
+            }
         }
         
         console.log('❌ Nenhum padrão de contagem encontrado');

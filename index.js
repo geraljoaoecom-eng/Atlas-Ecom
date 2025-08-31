@@ -180,7 +180,7 @@ app.post('/api/scrape-real', async (req, res) => {
     console.log(`🔍 Iniciando scraping real para biblioteca ${libraryId}`);
     
     // Importar o scraper real
-    const { updateLibraryCountReal } = await import('./scraper-realtime.js');
+    const { updateLibraryCountReal } = await import('./scraper-vercel.js');
     
     // Carregar bibliotecas
     const librariesFile = path.join(__dirname, 'data', 'libraries.json');
@@ -261,7 +261,7 @@ app.post('/api/scrape-all-real', async (req, res) => {
     console.log('🚀 Iniciando scraping real de todas as bibliotecas...');
     
     // Importar o scraper real
-    const { updateAllLibrariesReal } = await import('./scraper-realtime.js');
+    const { updateAllLibrariesReal } = await import('./scraper-vercel.js');
     
     // Carregar bibliotecas
     const librariesFile = path.join(__dirname, 'data', 'libraries.json');
