@@ -21,33 +21,69 @@ const UAS = [
 const randUA = () => UAS[Math.floor(Math.random()*UAS.length)];
 
 async function withContext(fn) {
-  if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
-  const ctx = await chromium.launchPersistentContext(DATA_DIR, {
-    headless: HEADLESS,
-    proxy: PROXY_URL ? { server: PROXY_URL } : undefined,
-    viewport: { width: 1200, height: 800 }, // Reduzido para ser mais rápido
-    userAgent: randUA(),
-    locale: LANG_HINT,
-    timezoneId: 'Europe/Lisbon',
-    ignoreHTTPSErrors: true,
-    // Otimizações para velocidade
-    args: [
-      '--disable-blink-features=AutomationControlled',
-      '--no-sandbox',
-      '--disable-dev-shm-usage',
-      '--disable-web-security',
-      '--disable-features=VizDisplayCompositor',
-      '--disable-extensions',
-      '--disable-plugins',
-      '--disable-images', // Não carregar imagens para ser mais rápido
-      '--disable-javascript', // Desabilitar JS desnecessário
-      `--lang=${LANG_HINT}`
-    ]
-  });
-  try { 
-    return await fn(ctx); 
-  } finally { 
-    await ctx.close(); 
+  // Verificar se estamos no Vercel (ambiente serverless)
+  const isVercel = process.env.VERCEL === '1';
+  
+  if (isVercel) {
+    // No Vercel, usar launch sem contexto persistente
+    const browser = await chromium.launch({
+      headless: true,
+      args: [
+        '--no-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-web-security',
+        '--disable-features=VizDisplayCompositor',
+        '--disable-extensions',
+        '--disable-plugins',
+        '--disable-images',
+        '--disable-javascript',
+        `--lang=${LANG_HINT}`
+      ]
+    });
+    
+    try {
+      const ctx = await browser.newContext({
+        viewport: { width: 1200, height: 800 },
+        userAgent: randUA(),
+        locale: LANG_HINT,
+        timezoneId: 'Europe/Lisbon',
+        ignoreHTTPSErrors: true
+      });
+      
+      return await fn(ctx);
+    } finally {
+      await browser.close();
+    }
+  } else {
+    // Em ambiente local, usar contexto persistente
+    if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
+    const ctx = await chromium.launchPersistentContext(DATA_DIR, {
+      headless: HEADLESS,
+      proxy: PROXY_URL ? { server: PROXY_URL } : undefined,
+      viewport: { width: 1200, height: 800 },
+      userAgent: randUA(),
+      locale: LANG_HINT,
+      timezoneId: 'Europe/Lisbon',
+      ignoreHTTPSErrors: true,
+      args: [
+        '--disable-blink-features=AutomationControlled',
+        '--no-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-web-security',
+        '--disable-features=VizDisplayCompositor',
+        '--disable-extensions',
+        '--disable-plugins',
+        '--disable-images',
+        '--disable-javascript',
+        `--lang=${LANG_HINT}`
+      ]
+    });
+    
+    try { 
+      return await fn(ctx); 
+    } finally { 
+      await ctx.close(); 
+    }
   }
 }
 
