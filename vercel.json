@@ -22,10 +22,12 @@
     {
       "src": "/",
       "dest": "/index.js"
-    },
+    }
+  ],
+  "rewrites": [
     {
-      "src": "/(.*\\.(js|css|html|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
-      "dest": "/public/$1"
+      "source": "/(.*\\.(js|css|html|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
+      "destination": "/public/$1"
     }
   ]
 }
