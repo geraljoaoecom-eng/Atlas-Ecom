@@ -65,15 +65,21 @@ async function scrapeFacebookAdsLibrary(url) {
             'CF-Cache-Status': 'DYNAMIC'
         };
         
-        // Fazer request para o Facebook com timeout
+        // Fazer request para o Facebook com timeout e técnicas anti-detecção
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 segundos timeout
+        
+        // Adicionar delay aleatório para parecer humano
+        const delay = Math.floor(Math.random() * 2000) + 1000; // 1-3 segundos
+        await new Promise(resolve => setTimeout(resolve, delay));
         
         const response = await fetch(url, {
             method: 'GET',
             headers: headers,
             redirect: 'follow',
-            signal: controller.signal
+            signal: controller.signal,
+            mode: 'cors',
+            credentials: 'omit'
         });
         
         clearTimeout(timeoutId);
