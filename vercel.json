@@ -5,7 +5,7 @@
       "src": "index.js",
       "use": "@vercel/node",
       "config": {
-        "buildCommand": "npm run playwright:install"
+        "buildCommand": "npm run vercel-build"
       }
     }
   ],
