@@ -2,12 +2,15 @@
   "name": "atlas-ecom",
   "version": "1.0.0",
   "description": "Atlas Ecom - Monitor Inteligente de Bibliotecas Facebook Ads com Playwright",
-  "main": "index.js",
+  "main": "main.js",
   "type": "module",
   "scripts": {
     "dev": "node index.js",
     "playwright:install": "npx playwright install --with-deps",
-    "start": "node index.js"
+    "start": "node index.js",
+    "electron": "electron .",
+    "build:mac": "electron-builder --mac",
+    "pack:mac": "electron-builder --mac --dir"
   },
   "keywords": [
     "atlas",
@@ -17,7 +20,10 @@
     "scraper",
     "playwright",
     "monitoring",
-    "libraries"
+    "libraries",
+    "electron",
+    "mac",
+    "desktop"
   ],
   "author": "Atlas Ecom",
   "license": "MIT",
@@ -29,12 +35,32 @@
     "jsonwebtoken": "^9.0.2",
     "node-cron": "^3.0.3",
     "playwright": "^1.40.0",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "electron": "^28.0.0"
   },
   "engines": {
     "node": ">=18.0.0"
   },
   "devDependencies": {
-    "vercel": "^46.1.1"
+    "vercel": "^46.1.1",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.atlas.ecom",
+    "productName": "Atlas Ecom",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!node_modules/**/*",
+      "!dist/**/*",
+      "!.git/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.business",
+      "icon": "assets/icon.icns",
+      "target": "dmg"
+    }
   }
 }
