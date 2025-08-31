@@ -3,10 +3,7 @@
   "builds": [
     {
       "src": "index.js",
-      "use": "@vercel/node",
-      "config": {
-        "buildCommand": "npm run vercel-build"
-      }
+      "use": "@vercel/node"
     }
   ],
   "rewrites": [

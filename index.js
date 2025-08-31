@@ -120,9 +120,9 @@ app.get('/api/test-scraping/:libraryId', async (req, res) => {
     
     console.log(`🧪 Testando scraping de: ${library.url}`);
     
-                    // Importar e testar o scraper original
-                const { getCountFromUrl } = await import('./scraper.js');
-                const result = await getCountFromUrl(library.url);
+                    // Importar e testar o scraper avançado
+                const { scrapeFacebookAdsLibrary } = await import('./scraper-vercel-advanced.js');
+                const result = await scrapeFacebookAdsLibrary(library.url);
     
     res.json({
       success: true,
@@ -221,24 +221,24 @@ app.post('/api/scrape-real', async (req, res) => {
     
     console.log(`🔍 Iniciando scraping real para biblioteca ${libraryId}`);
     
-                    // Importar o scraper original
-                const { getCountFromUrl } = await import('./scraper.js');
-    
-    // Carregar bibliotecas
-    const librariesFile = path.join(__dirname, 'data', 'libraries.json');
-    if (!fs.pathExistsSync(librariesFile)) {
-      return res.status(404).json({ error: 'Arquivo de bibliotecas não encontrado' });
-    }
-    
-    const libraries = fs.readJsonSync(librariesFile);
-    const library = libraries.find(lib => lib.id === libraryId);
-    
-    if (!library) {
-      return res.status(404).json({ error: 'Biblioteca não encontrada' });
-    }
-    
-                    // Fazer scraping real
-                const result = await getCountFromUrl(library.url);
+                                    // Importar o scraper avançado
+                const { updateLibraryCountReal } = await import('./scraper-vercel-advanced.js');
+                
+                // Carregar bibliotecas
+                const librariesFile = path.join(__dirname, 'data', 'libraries.json');
+                if (!fs.pathExistsSync(librariesFile)) {
+                  return res.status(404).json({ error: 'Arquivo de bibliotecas não encontrado' });
+                }
+                
+                const libraries = fs.readJsonSync(librariesFile);
+                const library = libraries.find(lib => lib.id === libraryId);
+                
+                if (!library) {
+                  return res.status(404).json({ error: 'Biblioteca não encontrada' });
+                }
+                
+                // Fazer scraping real
+                const result = await updateLibraryCountReal(libraryId, library.url);
     
     if (result.success) {
       // Atualizar biblioteca com dados reais
@@ -302,48 +302,26 @@ app.post('/api/scrape-all-real', async (req, res) => {
   try {
     console.log('🚀 Iniciando scraping real de todas as bibliotecas...');
     
-                    // Importar o scraper original
-                const { getCountFromUrl } = await import('./scraper.js');
-    
-    // Carregar bibliotecas
-    const librariesFile = path.join(__dirname, 'data', 'libraries.json');
-    if (!fs.pathExistsSync(librariesFile)) {
-      return res.status(404).json({ error: 'Arquivo de bibliotecas não encontrado' });
-    }
-    
-    const libraries = fs.readJsonSync(librariesFile);
-    
-    if (libraries.length === 0) {
-      return res.json({ 
-        success: false, 
-        error: 'Nenhuma biblioteca encontrada' 
-      });
-    }
-    
-                    // Fazer scraping real de todas as bibliotecas
-                const results = [];
-                for (const library of libraries) {
-                    try {
-                        const result = await getCountFromUrl(library.url);
-                        results.push({
-                            libraryId: library.id,
-                            libraryName: library.name,
-                            success: result.count !== null,
-                            count: result.count || 0,
-                            source: result.source || 'playwright-scraping'
-                        });
-                        
-                        // Pequena pausa entre requests
-                        await new Promise(resolve => setTimeout(resolve, 2000));
-                    } catch (error) {
-                        results.push({
-                            libraryId: library.id,
-                            libraryName: library.name,
-                            success: false,
-                            error: error.message
-                        });
-                    }
+                                    // Importar o scraper avançado
+                const { updateAllLibrariesReal } = await import('./scraper-vercel-advanced.js');
+                
+                // Carregar bibliotecas
+                const librariesFile = path.join(__dirname, 'data', 'libraries.json');
+                if (!fs.pathExistsSync(librariesFile)) {
+                  return res.status(404).json({ error: 'Arquivo de bibliotecas não encontrado' });
                 }
+                
+                const libraries = fs.readJsonSync(librariesFile);
+                
+                if (libraries.length === 0) {
+                  return res.json({ 
+                    success: false, 
+                    error: 'Nenhuma biblioteca encontrada' 
+                  });
+                }
+                
+                // Fazer scraping real de todas as bibliotecas
+                const results = await updateAllLibrariesReal(libraries);
     
     // Atualizar bibliotecas com dados reais
     const updatedLibraries = [];
