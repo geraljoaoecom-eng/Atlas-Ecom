@@ -20,15 +20,25 @@ async function scrapeFacebookAdsLibrary(url) {
             'Sec-Fetch-Site': 'none',
             'Cache-Control': 'max-age=0',
             'Referer': 'https://www.facebook.com/',
-            'Origin': 'https://www.facebook.com'
+            'Origin': 'https://www.facebook.com',
+            'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': '"Windows"',
+            'Sec-Fetch-User': '?1'
         };
         
-        // Fazer request para o Facebook
+        // Fazer request para o Facebook com timeout
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 segundos timeout
+        
         const response = await fetch(url, {
             method: 'GET',
             headers: headers,
-            redirect: 'follow'
+            redirect: 'follow',
+            signal: controller.signal
         });
+        
+        clearTimeout(timeoutId);
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -90,49 +100,49 @@ async function scrapeWithFallback(url) {
     } catch (error) {
         console.error(`❌ Erro no método alternativo: ${error.message}`);
         
-        // Último recurso: tentar com método de simulação inteligente
-        return await scrapeWithSimulation(url);
+        // Último recurso: tentar com método de proxy alternativo
+        return await scrapeWithAlternativeProxy(url);
     }
 }
 
-// Método de simulação inteligente baseado em dados históricos
-async function scrapeWithSimulation(url) {
+// Método de proxy alternativo
+async function scrapeWithAlternativeProxy(url) {
     try {
-        console.log(`🎲 Usando simulação inteligente para: ${url}`);
+        console.log(`🔄 Tentando proxy alternativo para: ${url}`);
         
-        // Analisar a URL para determinar o tipo de biblioteca
-        let baseCount = 100; // Contagem base
+        // Usar outro serviço de proxy
+        const proxyUrl = 'https://cors-anywhere.herokuapp.com/' + url;
         
-        if (url.includes('page_id')) {
-            // É uma página específica
-            baseCount = Math.floor(Math.random() * 500) + 200; // 200-700
-        } else if (url.includes('keyword')) {
-            // É uma pesquisa por palavra-chave
-            baseCount = Math.floor(Math.random() * 1000) + 500; // 500-1500
-        } else if (url.includes('country=ALL')) {
-            // É uma pesquisa global
-            baseCount = Math.floor(Math.random() * 2000) + 1000; // 1000-3000
+        const response = await fetch(proxyUrl, {
+            method: 'GET',
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                'Accept-Language': 'pt-PT,pt;q=0.9,en;q=0.8',
+                'Origin': 'https://www.facebook.com'
+            }
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
         
-        // Adicionar variação realista
-        const variation = Math.floor(Math.random() * 200) - 100; // ±100
-        const finalCount = Math.max(0, baseCount + variation);
-        
-        console.log(`🎲 Simulação inteligente: base=${baseCount}, variação=${variation}, final=${finalCount}`);
+        const html = await response.text();
+        const resultCount = extractResultCount(html);
         
         return {
             success: true,
-            count: finalCount,
-            source: 'vercel-intelligent-simulation',
-            html: 'Simulated content'
+            count: resultCount,
+            source: 'vercel-alternative-proxy',
+            html: html.substring(0, 500)
         };
         
     } catch (error) {
-        console.error(`❌ Erro na simulação: ${error.message}`);
+        console.error(`❌ Erro no proxy alternativo: ${error.message}`);
         return {
             success: false,
             error: error.message,
-            source: 'vercel-simulation-error'
+            source: 'vercel-proxy-error'
         };
     }
 }
@@ -142,18 +152,20 @@ function extractResultCount(html) {
     try {
         console.log('🔍 Analisando HTML para extrair contagem...');
         
-        // Padrões comuns do Facebook Ads Library (mais específicos)
+        // Padrões específicos do Facebook Ads Library (baseados na imagem real)
         const patterns = [
-            // Padrão principal: "~610 resultados" ou "610 resultados"
-            /~?(\d+(?:[.,]\d+)?)\s+(?:resultados|results|résultats)/i,
-            // Padrão alternativo: "resultados: 610" ou "results: 610"
-            /(?:resultados|results)\s*[~:]\s*(\d+(?:[.,]\d+)?)/i,
-            // Padrão com contexto: "610 anúncios encontrados"
-            /(\d+(?:[.,]\d+)?)\s+(?:anúncios?|ads?)\s+(?:encontrados?|found)/i,
-            // Padrão genérico: qualquer número seguido de "resultados"
-            /(\d+)\s*resultados?/i,
-            // Padrão em inglês
-            /(\d+)\s*results?/i
+            // Padrão principal: "~3 resultados" (exatamente como na imagem)
+            /~(\d+)\s+resultados?/i,
+            // Padrão alternativo: "3 resultados" (sem ~)
+            /(\d+)\s+resultados?/i,
+            // Padrão em inglês: "~3 results"
+            /~(\d+)\s+results?/i,
+            // Padrão em inglês: "3 results"
+            /(\d+)\s+results?/i,
+            // Padrão com contexto: "resultados: ~3"
+            /resultados?\s*:\s*~?(\d+)/i,
+            // Padrão com contexto: "results: ~3"
+            /results?\s*:\s*~?(\d+)/i
         ];
         
         for (const pattern of patterns) {
