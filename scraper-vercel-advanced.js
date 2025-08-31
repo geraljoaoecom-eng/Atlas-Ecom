@@ -138,6 +138,16 @@ async function scrapeFacebookAdsLibrary(url) {
             });
         }
         
+        // Se ainda falhar, tentar com método TRACE
+        if (!response.ok) {
+            response = await fetch(url, {
+                method: 'TRACE',
+                headers: headers,
+                redirect: 'follow',
+                signal: controller.signal
+            });
+        }
+        
         clearTimeout(timeoutId);
         
         if (!response.ok) {
