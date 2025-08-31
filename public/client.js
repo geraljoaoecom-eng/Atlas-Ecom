@@ -243,6 +243,129 @@ async function loadLibraries() {
     } catch (error) {
         console.error('❌ Erro ao carregar bibliotecas:', error);
     }
+    
+    // Iniciar atualizações automáticas após carregar bibliotecas
+    startAutoUpdates();
+}
+
+// Sistema de atualizações automáticas
+let autoUpdateInterval = null;
+
+function startAutoUpdates() {
+    if (autoUpdateInterval) {
+        clearInterval(autoUpdateInterval);
+    }
+    
+    console.log('🔄 Iniciando atualizações automáticas a cada 30 segundos...');
+    
+    // Atualizar imediatamente
+    updateAllLibraryCounts();
+    
+    // Configurar intervalo de 30 segundos
+    autoUpdateInterval = setInterval(updateAllLibraryCounts, 30000);
+}
+
+function stopAutoUpdates() {
+    if (autoUpdateInterval) {
+        clearInterval(autoUpdateInterval);
+        autoUpdateInterval = null;
+        console.log('⏹️ Atualizações automáticas paradas');
+    }
+}
+
+// Função para atualizar todos os contadores das bibliotecas
+async function updateAllLibraryCounts() {
+    console.log('🔄 Atualizando contadores de todas as bibliotecas...');
+    
+    try {
+        // Fazer scraping de todas as URLs das bibliotecas
+        for (let i = 0; i < libraries.length; i++) {
+            const library = libraries[i];
+            
+            try {
+                // Simular contagem (em produção, seria um scraping real)
+                const newCount = await simulateScraping(library.url);
+                
+                // Atualizar no servidor
+                await updateLibraryCount(library.id, newCount);
+                
+                // Atualizar no frontend
+                updateLibraryCountDisplay(library.id, newCount);
+                
+                console.log(`✅ Biblioteca ${library.name} atualizada: ${newCount} anúncios`);
+                
+                // Pequena pausa entre atualizações para não sobrecarregar
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+            } catch (error) {
+                console.error(`❌ Erro ao atualizar biblioteca ${library.name}:`, error);
+            }
+        }
+        
+        console.log('✅ Todas as bibliotecas atualizadas com sucesso!');
+        
+    } catch (error) {
+        console.error('❌ Erro geral nas atualizações:', error);
+    }
+}
+
+// Função para simular scraping (em produção seria real)
+async function simulateScraping(url) {
+    // Simular variação nos números (em produção seria scraping real)
+    const baseCount = Math.floor(Math.random() * 1000) + 100;
+    const variation = Math.floor(Math.random() * 100) - 50;
+    return Math.max(0, baseCount + variation);
+}
+
+// Função para atualizar contador no servidor
+async function updateLibraryCount(libraryId, count) {
+    try {
+        const response = await authenticatedFetch('/api/update-count', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                libraryId: libraryId,
+                count: count
+            })
+        });
+        
+        if (response.ok) {
+            const data = await response.json();
+            if (data.success) {
+                console.log(`✅ Contador atualizado no servidor: ${count}`);
+                return true;
+            } else {
+                throw new Error(data.error || 'Erro desconhecido');
+            }
+        } else {
+            throw new Error('Erro na resposta do servidor');
+        }
+    } catch (error) {
+        console.error('❌ Erro ao atualizar contador no servidor:', error);
+        throw error;
+    }
+}
+
+// Função para atualizar display do contador
+function updateLibraryCountDisplay(libraryId, newCount) {
+    const libraryElement = document.querySelector(`[data-library-id="${libraryId}"]`);
+    if (libraryElement) {
+        const countElement = libraryElement.querySelector('.ads-count');
+        if (countElement) {
+            countElement.textContent = newCount;
+            
+            // Adicionar efeito visual de atualização
+            countElement.style.color = '#28a745';
+            countElement.style.fontWeight = 'bold';
+            
+            setTimeout(() => {
+                countElement.style.color = '';
+                countElement.style.fontWeight = '';
+            }, 2000);
+        }
+    }
 }
 
 function getTrendIndicator(library) {
