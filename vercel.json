@@ -22,10 +22,6 @@
     {
       "source": "/",
       "destination": "/index.js"
-    },
-    {
-      "source": "/(.*\\.(js|css|html|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
-      "destination": "/public/$1"
     }
   ]
 }
