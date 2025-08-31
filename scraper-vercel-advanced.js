@@ -36,7 +36,7 @@ async function scrapeFacebookAdsLibrary(url) {
     try {
         console.log(`🔍 Fazendo scraping direto de: ${url}`);
         
-        // Configurar headers para parecer um browser real
+        // Configurar headers para parecer um browser real com técnicas anti-detecção
         const headers = {
             'User-Agent': getRandomUserAgent(),
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
@@ -54,7 +54,15 @@ async function scrapeFacebookAdsLibrary(url) {
             'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
             'sec-ch-ua-mobile': '?0',
             'sec-ch-ua-platform': '"Windows"',
-            'Sec-Fetch-User': '?1'
+            'Sec-Fetch-User': '?1',
+            'X-Requested-With': 'XMLHttpRequest',
+            'X-Forwarded-For': '192.168.1.1',
+            'X-Real-IP': '192.168.1.1',
+            'CF-Connecting-IP': '192.168.1.1',
+            'CF-IPCountry': 'PT',
+            'CF-Visitor': '{"scheme":"https"}',
+            'CF-Ray': '1234567890abcdef',
+            'CF-Cache-Status': 'DYNAMIC'
         };
         
         // Fazer request para o Facebook com timeout
