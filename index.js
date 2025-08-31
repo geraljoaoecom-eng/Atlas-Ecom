@@ -147,7 +147,7 @@ app.post('/api/update-count', async (req, res) => {
     }
     
     // Guardar alterações
-    fs.writeJsonSync(librariesFile, libraries, { spaces: 2 });
+    fs.writeJsonSync(librariesFile, libraries, { spaces:2 });
     
     console.log(`✅ Biblioteca ${libraries[libraryIndex].name} atualizada: ${count} anúncios`);
     
@@ -159,6 +159,176 @@ app.post('/api/update-count', async (req, res) => {
     
   } catch (error) {
     console.error('❌ Erro ao atualizar número de anúncios:', error);
+    res.status(500).json({ 
+      error: 'Erro interno do servidor',
+      message: error.message 
+    });
+  }
+});
+
+// Rota para fazer scraping real e atualizar biblioteca
+app.post('/api/scrape-real', async (req, res) => {
+  try {
+    const { libraryId } = req.body;
+    
+    if (!libraryId) {
+      return res.status(400).json({ 
+        error: 'libraryId é obrigatório' 
+      });
+    }
+    
+    console.log(`🔍 Iniciando scraping real para biblioteca ${libraryId}`);
+    
+    // Importar o scraper real
+    const { updateLibraryCountReal } = await import('./scraper-realtime.js');
+    
+    // Carregar bibliotecas
+    const librariesFile = path.join(__dirname, 'data', 'libraries.json');
+    if (!fs.pathExistsSync(librariesFile)) {
+      return res.status(404).json({ error: 'Arquivo de bibliotecas não encontrado' });
+    }
+    
+    const libraries = fs.readJsonSync(librariesFile);
+    const library = libraries.find(lib => lib.id === libraryId);
+    
+    if (!library) {
+      return res.status(404).json({ error: 'Biblioteca não encontrada' });
+    }
+    
+    // Fazer scraping real
+    const result = await updateLibraryCountReal(libraryId, library.url);
+    
+    if (result.success) {
+      // Atualizar biblioteca com dados reais
+      const libraryIndex = libraries.findIndex(lib => lib.id === libraryId);
+      libraries[libraryIndex].lastActiveAds = result.count;
+      libraries[libraryIndex].lastUpdate = new Date().toISOString();
+      
+      // Adicionar ao histórico
+      if (!libraries[libraryIndex].history) {
+        libraries[libraryIndex].history = [];
+      }
+      
+      const today = new Date().toISOString().split('T')[0];
+      const existingEntry = libraries[libraryIndex].history.find(h => h.date === today);
+      
+      if (existingEntry) {
+        existingEntry.count = result.count;
+        existingEntry.lastUpdate = new Date().toISOString();
+      } else {
+        libraries[libraryIndex].history.push({
+          date: today,
+          count: result.count,
+          timestamp: new Date().toISOString()
+        });
+      }
+      
+      // Guardar alterações
+      fs.writeJsonSync(librariesFile, libraries, { spaces: 2 });
+      
+      console.log(`✅ Biblioteca ${library.name} atualizada com dados reais: ${result.count} anúncios`);
+      
+      res.json({
+        success: true,
+        library: libraries[libraryIndex],
+        scrapedCount: result.count,
+        source: result.source,
+        message: 'Biblioteca atualizada com dados reais do Facebook'
+      });
+      
+    } else {
+      console.error(`❌ Falha no scraping real: ${result.error}`);
+      res.status(500).json({
+        success: false,
+        error: result.error,
+        source: result.source,
+        message: 'Falha no scraping real'
+      });
+    }
+    
+  } catch (error) {
+    console.error('❌ Erro no scraping real:', error);
+    res.status(500).json({ 
+      error: 'Erro interno do servidor',
+      message: error.message 
+    });
+  }
+});
+
+// Rota para atualizar todas as bibliotecas com dados reais
+app.post('/api/scrape-all-real', async (req, res) => {
+  try {
+    console.log('🚀 Iniciando scraping real de todas as bibliotecas...');
+    
+    // Importar o scraper real
+    const { updateAllLibrariesReal } = await import('./scraper-realtime.js');
+    
+    // Carregar bibliotecas
+    const librariesFile = path.join(__dirname, 'data', 'libraries.json');
+    if (!fs.pathExistsSync(librariesFile)) {
+      return res.status(404).json({ error: 'Arquivo de bibliotecas não encontrado' });
+    }
+    
+    const libraries = fs.readJsonSync(librariesFile);
+    
+    if (libraries.length === 0) {
+      return res.json({ 
+        success: false, 
+        error: 'Nenhuma biblioteca encontrada' 
+      });
+    }
+    
+    // Fazer scraping real de todas as bibliotecas
+    const results = await updateAllLibrariesReal(libraries);
+    
+    // Atualizar bibliotecas com dados reais
+    const updatedLibraries = [];
+    for (const result of results) {
+      if (result.success) {
+        const libraryIndex = libraries.findIndex(lib => lib.id === result.libraryId);
+        if (libraryIndex !== -1) {
+          libraries[libraryIndex].lastActiveAds = result.count;
+          libraries[libraryIndex].lastUpdate = new Date().toISOString();
+          
+          // Adicionar ao histórico
+          if (!libraries[libraryIndex].history) {
+            libraries[libraryIndex].history = [];
+          }
+          
+          const today = new Date().toISOString().split('T')[0];
+          const existingEntry = libraries[libraryIndex].history.find(h => h.date === today);
+          
+          if (existingEntry) {
+            existingEntry.count = result.count;
+            existingEntry.lastUpdate = new Date().toISOString();
+          } else {
+            libraries[libraryIndex].history.push({
+              date: today,
+              count: result.count,
+              timestamp: new Date().toISOString()
+            });
+          }
+          
+          updatedLibraries.push(libraries[libraryIndex]);
+        }
+      }
+    }
+    
+    // Guardar alterações
+    fs.writeJsonSync(librariesFile, libraries, { spaces: 2 });
+    
+    console.log(`✅ ${updatedLibraries.length} bibliotecas atualizadas com dados reais`);
+    
+    res.json({
+      success: true,
+      totalLibraries: libraries.length,
+      updatedLibraries: updatedLibraries.length,
+      results: results,
+      message: 'Scraping real concluído com sucesso'
+    });
+    
+  } catch (error) {
+    console.error('❌ Erro no scraping real de todas as bibliotecas:', error);
     res.status(500).json({ 
       error: 'Erro interno do servidor',
       message: error.message 

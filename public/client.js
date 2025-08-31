@@ -273,48 +273,82 @@ function stopAutoUpdates() {
     }
 }
 
-// Função para atualizar todos os contadores das bibliotecas
+// Função para atualizar todos os contadores das bibliotecas com dados REAIS
 async function updateAllLibraryCounts() {
-    console.log('🔄 Atualizando contadores de todas as bibliotecas...');
+    console.log('🔄 Atualizando contadores de todas as bibliotecas com dados REAIS...');
     
     try {
-        // Fazer scraping de todas as URLs das bibliotecas
-        for (let i = 0; i < libraries.length; i++) {
-            const library = libraries[i];
-            
-            try {
-                // Simular contagem (em produção, seria um scraping real)
-                const newCount = await simulateScraping(library.url);
-                
-                // Atualizar no servidor
-                await updateLibraryCount(library.id, newCount);
-                
-                // Atualizar no frontend
-                updateLibraryCountDisplay(library.id, newCount);
-                
-                console.log(`✅ Biblioteca ${library.name} atualizada: ${newCount} anúncios`);
-                
-                // Pequena pausa entre atualizações para não sobrecarregar
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                
-            } catch (error) {
-                console.error(`❌ Erro ao atualizar biblioteca ${library.name}:`, error);
+        // Usar a nova API de scraping real
+        const response = await authenticatedFetch('/api/scrape-all-real', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
             }
+        });
+        
+        if (response.ok) {
+            const data = await response.json();
+            
+            if (data.success) {
+                console.log(`✅ Scraping real concluído: ${data.updatedLibraries}/${data.totalLibraries} bibliotecas atualizadas`);
+                
+                // Atualizar display com dados reais
+                for (const result of data.results) {
+                    if (result.success) {
+                        updateLibraryCountDisplay(result.libraryId, result.count);
+                        console.log(`✅ Biblioteca ${result.libraryName} atualizada com dados reais: ${result.count} anúncios`);
+                    } else {
+                        console.error(`❌ Falha na biblioteca ${result.libraryName}: ${result.error}`);
+                    }
+                }
+                
+                // Recarregar bibliotecas para mostrar dados atualizados
+                await loadLibraries();
+                
+            } else {
+                throw new Error(data.error || 'Erro desconhecido no scraping real');
+            }
+        } else {
+            throw new Error('Erro na resposta do servidor');
         }
         
-        console.log('✅ Todas as bibliotecas atualizadas com sucesso!');
-        
     } catch (error) {
-        console.error('❌ Erro geral nas atualizações:', error);
+        console.error('❌ Erro no scraping real:', error);
+        
+        // Fallback: mostrar mensagem de erro no frontend
+        showErrorMessage('Erro no scraping real. Verifica o console para mais detalhes.');
     }
 }
 
-// Função para simular scraping (em produção seria real)
-async function simulateScraping(url) {
-    // Simular variação nos números (em produção seria scraping real)
-    const baseCount = Math.floor(Math.random() * 1000) + 100;
-    const variation = Math.floor(Math.random() * 100) - 50;
-    return Math.max(0, baseCount + variation);
+// Função para mostrar mensagens de erro no frontend
+function showErrorMessage(message) {
+    // Criar ou atualizar elemento de mensagem de erro
+    let errorElement = document.getElementById('error-message');
+    if (!errorElement) {
+        errorElement = document.createElement('div');
+        errorElement.id = 'error-message';
+        errorElement.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #dc3545;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 1000;
+            max-width: 300px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        `;
+        document.body.appendChild(errorElement);
+    }
+    
+    errorElement.textContent = message;
+    errorElement.style.display = 'block';
+    
+    // Auto-hide após 5 segundos
+    setTimeout(() => {
+        errorElement.style.display = 'none';
+    }, 5000);
 }
 
 // Função para atualizar contador no servidor
