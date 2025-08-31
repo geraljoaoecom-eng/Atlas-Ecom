@@ -263,6 +263,10 @@ function startAutoUpdates() {
     
     // Configurar intervalo de 30 segundos
     autoUpdateInterval = setInterval(updateAllLibraryCounts, 30000);
+    
+    // Debug: mostrar status
+    console.log('✅ Sistema de atualizações automáticas iniciado');
+    console.log('🕐 Próxima atualização em 30 segundos');
 }
 
 function stopAutoUpdates() {
@@ -317,6 +321,26 @@ async function updateAllLibraryCounts() {
         
         // Fallback: mostrar mensagem de erro no frontend
         showErrorMessage('Erro no scraping real. Verifica o console para mais detalhes.');
+    }
+}
+
+// Função para forçar atualização manual de todas as bibliotecas
+async function forceUpdateAll() {
+    try {
+        console.log('🚀 Forçando atualização manual de todas as bibliotecas...');
+        
+        // Mostrar status
+        showStatus('🔄 Atualizando todas as bibliotecas com dados reais...', 'info');
+        
+        // Chamar a função de atualização
+        await updateAllLibraryCounts();
+        
+        // Mostrar sucesso
+        showStatus('✅ Todas as bibliotecas atualizadas com sucesso!', 'success');
+        
+    } catch (error) {
+        console.error('❌ Erro na atualização manual:', error);
+        showStatus('❌ Erro na atualização: ' + error.message, 'error');
     }
 }
 
