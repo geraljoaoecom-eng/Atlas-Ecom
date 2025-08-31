@@ -8,6 +8,18 @@
   ],
   "rewrites": [
     {
+      "source": "/client.js",
+      "destination": "/index.js"
+    },
+    {
+      "source": "/index.html",
+      "destination": "/index.js"
+    },
+    {
+      "source": "/login.html",
+      "destination": "/index.js"
+    },
+    {
       "source": "/api/(.*)",
       "destination": "/index.js"
     },
