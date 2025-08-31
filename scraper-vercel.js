@@ -1,6 +1,34 @@
 // Scraper profissional que funciona diretamente no Vercel
 // Usa técnicas avançadas para contornar bloqueios do Facebook
 
+// Lista de User-Agents para rotação
+const USER_AGENTS = [
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/121.0',
+    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+];
+
+// Lista de proxies para rotação
+const PROXY_SERVICES = [
+    'https://api.allorigins.win/raw?url=',
+    'https://cors-anywhere.herokuapp.com/',
+    'https://thingproxy.freeboard.io/fetch/',
+    'https://api.codetabs.com/v1/proxy?quest='
+];
+
+// Função para obter User-Agent aleatório
+function getRandomUserAgent() {
+    return USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
+}
+
+// Função para obter proxy aleatório
+function getRandomProxy() {
+    return PROXY_SERVICES[Math.floor(Math.random() * PROXY_SERVICES.length)];
+}
+
 // Função para fazer scraping direto do Facebook Ads Library
 async function scrapeFacebookAdsLibrary(url) {
     try {
@@ -8,7 +36,7 @@ async function scrapeFacebookAdsLibrary(url) {
         
         // Configurar headers para parecer um browser real
         const headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'User-Agent': getRandomUserAgent(),
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
             'Accept-Language': 'pt-PT,pt;q=0.9,en;q=0.8',
             'Accept-Encoding': 'gzip, deflate, br',
@@ -71,31 +99,45 @@ async function scrapeWithFallback(url) {
     try {
         console.log(`🔄 Tentando método alternativo com proxy para: ${url}`);
         
-        // Usar um proxy público gratuito (pode não funcionar sempre)
-        const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
-        
-        const response = await fetch(proxyUrl, {
-            method: 'GET',
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-                'Accept-Language': 'pt-PT,pt;q=0.9,en;q=0.8'
+        // Tentar múltiplos proxies
+        for (let i = 0; i < PROXY_SERVICES.length; i++) {
+            try {
+                const proxyUrl = PROXY_SERVICES[i] + encodeURIComponent(url);
+                console.log(`🔄 Tentando proxy ${i + 1}/${PROXY_SERVICES.length}: ${PROXY_SERVICES[i]}`);
+                
+                const response = await fetch(proxyUrl, {
+                    method: 'GET',
+                    headers: {
+                        'User-Agent': getRandomUserAgent(),
+                        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                        'Accept-Language': 'pt-PT,pt;q=0.9,en;q=0.8'
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const html = await response.text();
+                const resultCount = extractResultCount(html);
+                
+                if (resultCount !== null) {
+                    console.log(`✅ Proxy ${i + 1} funcionou!`);
+                    return {
+                        success: true,
+                        count: resultCount,
+                        source: `vercel-proxy-${i + 1}`,
+                        html: html.substring(0, 500)
+                    };
+                }
+                
+            } catch (error) {
+                console.log(`❌ Proxy ${i + 1} falhou: ${error.message}`);
+                continue;
             }
-        });
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
         }
         
-        const html = await response.text();
-        const resultCount = extractResultCount(html);
-        
-        return {
-            success: true,
-            count: resultCount,
-            source: 'vercel-proxy-scraping',
-            html: html.substring(0, 500)
-        };
+        throw new Error('Todos os proxies falharam');
         
     } catch (error) {
         console.error(`❌ Erro no método alternativo: ${error.message}`);
