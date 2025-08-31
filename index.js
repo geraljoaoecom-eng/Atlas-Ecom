@@ -98,6 +98,48 @@ app.post('/api/auth/login', (req, res) => {
     }
 });
 
+// Rota de teste para verificar scraping (sem autenticação)
+app.get('/api/test-scraping/:libraryId', async (req, res) => {
+  try {
+    const { libraryId } = req.params;
+    
+    console.log(`🧪 Teste de scraping para biblioteca ${libraryId}`);
+    
+    // Carregar bibliotecas
+    const librariesFile = path.join(__dirname, 'data', 'libraries.json');
+    if (!fs.pathExistsSync(librariesFile)) {
+      return res.status(404).json({ error: 'Arquivo de bibliotecas não encontrado' });
+    }
+    
+    const libraries = fs.readJsonSync(librariesFile);
+    const library = libraries.find(lib => lib.id === libraryId);
+    
+    if (!library) {
+      return res.status(404).json({ error: 'Biblioteca não encontrada' });
+    }
+    
+    console.log(`🧪 Testando scraping de: ${library.url}`);
+    
+    // Importar e testar o scraper
+    const { scrapeFacebookAdsLibrary } = await import('./scraper-vercel.js');
+    const result = await scrapeFacebookAdsLibrary(library.url);
+    
+    res.json({
+      success: true,
+      library: library,
+      scrapingResult: result,
+      timestamp: new Date().toISOString()
+    });
+    
+  } catch (error) {
+    console.error('❌ Erro no teste de scraping:', error);
+    res.status(500).json({ 
+      error: 'Erro no teste de scraping',
+      message: error.message 
+    });
+  }
+});
+
 // Rota para atualizar manualmente o número de anúncios de uma biblioteca
 app.post('/api/update-count', async (req, res) => {
   try {
