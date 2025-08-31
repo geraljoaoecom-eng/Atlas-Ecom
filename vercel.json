@@ -6,25 +6,23 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/dashboard",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/login",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/",
-      "dest": "/index.js"
-    }
-  ],
   "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/index.js"
+    },
+    {
+      "source": "/dashboard",
+      "destination": "/index.js"
+    },
+    {
+      "source": "/login",
+      "destination": "/index.js"
+    },
+    {
+      "source": "/",
+      "destination": "/index.js"
+    },
     {
       "source": "/(.*\\.(js|css|html|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
       "destination": "/public/$1"
