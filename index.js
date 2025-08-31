@@ -136,6 +136,19 @@ app.post('/api/auth/logout', (req, res) => {
 // Servir ficheiros estáticos
 app.use(express.static('public'));
 
+// Rotas específicas para arquivos estáticos
+app.get('/client.js', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'client.js'));
+});
+
+app.get('/index.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.get('/login.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'login.html'));
+});
+
 // Rotas da API
 app.get('/api/ping', (req, res) => {
     res.json({ ok: true, timestamp: new Date().toISOString() });
