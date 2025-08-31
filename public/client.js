@@ -79,8 +79,6 @@ async function authenticatedFetch(url, options = {}) {
 // Tab Functions
 function showTab(tabName) {
     console.log('🔄 Mudando para aba:', tabName);
-    console.log('🔍 Evento:', event);
-    console.log('🔍 Target:', event?.target);
     
     // Hide all tabs
     const allTabs = document.querySelectorAll('.tab-content');
@@ -89,6 +87,7 @@ function showTab(tabName) {
     allTabs.forEach(tab => {
         console.log('🔍 Ocultando aba:', tab.id);
         tab.style.display = 'none';
+        tab.classList.remove('active');
     });
     
     // Remove active class from all tab buttons
@@ -105,23 +104,19 @@ function showTab(tabName) {
     
     if (selectedTab) {
         selectedTab.style.display = 'block';
+        selectedTab.classList.add('active');
         console.log('✅ Aba mostrada:', tabName);
     } else {
         console.error('❌ Aba não encontrada:', tabName);
     }
     
     // Add active class to clicked button
-    if (event && event.target) {
-        // Find the closest nav-item parent
-        const navItem = event.target.closest('.nav-item');
-        if (navItem) {
-            navItem.classList.add('active');
-            console.log('✅ Classe active adicionada ao botão:', navItem);
-        } else {
-            console.error('❌ Nav-item não encontrado');
-        }
+    const clickedButton = document.querySelector(`[onclick="showTab('${tabName}')"]`);
+    if (clickedButton) {
+        clickedButton.classList.add('active');
+        console.log('✅ Classe active adicionada ao botão:', clickedButton);
     } else {
-        console.error('❌ Evento ou target não encontrado');
+        console.error('❌ Botão de navegação não encontrado para:', tabName);
     }
     
     // Load content based on tab

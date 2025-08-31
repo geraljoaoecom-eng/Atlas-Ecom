@@ -2698,5 +2698,35 @@
 
     <!-- Scripts -->
     <script src="client.js"></script>
+    <script>
+        // Inicialização das abas quando a página carrega
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Inicializando sistema de abas...');
+            
+            // Garantir que apenas a primeira aba esteja visível
+            const allTabs = document.querySelectorAll('.tab-content');
+            allTabs.forEach((tab, index) => {
+                if (index === 0) {
+                    tab.style.display = 'block';
+                    tab.classList.add('active');
+                } else {
+                    tab.style.display = 'none';
+                    tab.classList.remove('active');
+                }
+            });
+            
+            // Garantir que o primeiro botão de navegação esteja ativo
+            const allNavItems = document.querySelectorAll('.nav-item');
+            allNavItems.forEach((navItem, index) => {
+                if (index === 0) {
+                    navItem.classList.add('active');
+                } else {
+                    navItem.classList.remove('active');
+                }
+            });
+            
+            console.log('✅ Sistema de abas inicializado');
+        });
+    </script>
 </body>
 </html>
