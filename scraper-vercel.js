@@ -18,7 +18,9 @@ async function scrapeFacebookAdsLibrary(url) {
             'Sec-Fetch-Dest': 'document',
             'Sec-Fetch-Mode': 'navigate',
             'Sec-Fetch-Site': 'none',
-            'Cache-Control': 'max-age=0'
+            'Cache-Control': 'max-age=0',
+            'Referer': 'https://www.facebook.com/',
+            'Origin': 'https://www.facebook.com'
         };
         
         // Fazer request para o Facebook
@@ -95,13 +97,19 @@ async function scrapeWithFallback(url) {
 // Função para extrair número de resultados do HTML
 function extractResultCount(html) {
     try {
-        // Padrões comuns do Facebook Ads Library
+        console.log('🔍 Analisando HTML para extrair contagem...');
+        
+        // Padrões comuns do Facebook Ads Library (mais específicos)
         const patterns = [
+            // Padrão principal: "~610 resultados" ou "610 resultados"
             /~?(\d+(?:[.,]\d+)?)\s+(?:resultados|results|résultats)/i,
-            /(\d+(?:[.,]\d+)?)\s+(?:resultados|results|résultats)/i,
-            /resultados?\s*[~:]\s*(\d+(?:[.,]\d+)?)/i,
-            /results?\s*[~:]\s*(\d+(?:[.,]\d+)?)/i,
+            // Padrão alternativo: "resultados: 610" ou "results: 610"
+            /(?:resultados|results)\s*[~:]\s*(\d+(?:[.,]\d+)?)/i,
+            // Padrão com contexto: "610 anúncios encontrados"
+            /(\d+(?:[.,]\d+)?)\s+(?:anúncios?|ads?)\s+(?:encontrados?|found)/i,
+            // Padrão genérico: qualquer número seguido de "resultados"
             /(\d+)\s*resultados?/i,
+            // Padrão em inglês
             /(\d+)\s*results?/i
         ];
         
@@ -116,12 +124,14 @@ function extractResultCount(html) {
             }
         }
         
-        // Procurar por números em contexto de resultados
+        // Procurar por números em contexto mais amplo
         const contextPatterns = [
-            /resultados?\s*[~:]\s*(\d+)/i,
-            /results?\s*[~:]\s*(\d+)/i,
-            /(\d+)\s*anúncios?/i,
-            /(\d+)\s*ads?/i
+            // "resultados: ~610" ou "results: ~610"
+            /(?:resultados?|results?)\s*[~:]\s*(\d+)/i,
+            // "610 anúncios" ou "610 ads"
+            /(\d+)\s+(?:anúncios?|ads?)/i,
+            // "encontrados 610" ou "found 610"
+            /(?:encontrados?|found)\s+(\d+)/i
         ];
         
         for (const pattern of contextPatterns) {
@@ -130,6 +140,26 @@ function extractResultCount(html) {
                 const count = parseInt(match[1]);
                 if (!isNaN(count) && count > 0) {
                     console.log(`✅ Padrão de contexto encontrado: "${match[0]}" -> ${count}`);
+                    return count;
+                }
+            }
+        }
+        
+        // Debug: mostrar parte do HTML para análise
+        console.log('🔍 HTML analisado (primeiros 1000 chars):', html.substring(0, 1000));
+        
+        // Procurar por qualquer número que possa ser um contador
+        const numberPatterns = [
+            /(\d{2,4})\s*(?:resultados?|results?|anúncios?|ads?)/i,
+            /(?:resultados?|results?|anúncios?|ads?)\s*(\d{2,4})/i
+        ];
+        
+        for (const pattern of numberPatterns) {
+            const match = html.match(pattern);
+            if (match && match[1]) {
+                const count = parseInt(match[1]);
+                if (!isNaN(count) && count > 10) { // Números maiores que 10 são mais prováveis de serem contadores
+                    console.log(`✅ Padrão de número encontrado: "${match[0]}" -> ${count}`);
                     return count;
                 }
             }
