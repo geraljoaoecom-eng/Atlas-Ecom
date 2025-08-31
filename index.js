@@ -98,6 +98,39 @@ app.post('/api/auth/login', (req, res) => {
     }
 });
 
+// Rota de debug pública para verificar scraping (sem autenticação)
+app.get('/api/debug-scraping', async (req, res) => {
+  try {
+    console.log('🔍 Debug de scraping público...');
+    
+    if (libraryUrls.length === 0) {
+      return res.json({ error: 'Nenhuma URL para testar' });
+    }
+    
+    // Testar apenas a primeira URL
+    const testUrl = libraryUrls[0];
+    console.log(`🔍 Testando URL: ${testUrl}`);
+    
+    const result = await getCountFromUrl(testUrl);
+    console.log('🔍 Resultado do debug:', result);
+    
+    res.json({
+      success: true,
+      url: testUrl,
+      result: result,
+      timestamp: new Date().toISOString(),
+      totalLibraries: libraryUrls.length
+    });
+    
+  } catch (error) {
+    console.error('❌ Erro no debug de scraping:', error);
+    res.status(500).json({ 
+      error: 'Erro no debug de scraping',
+      message: error.message 
+    });
+  }
+});
+
 // Middleware de autenticação para todas as outras rotas da API
 app.use('/api', authenticateToken);
 
@@ -957,38 +990,7 @@ app.post('/api/test-scraping', async (req, res) => {
   }
 });
 
-// Rota de teste pública para verificar scraping (sem autenticação)
-app.get('/api/debug-scraping', async (req, res) => {
-  try {
-    console.log('🔍 Debug de scraping público...');
-    
-    if (libraryUrls.length === 0) {
-      return res.json({ error: 'Nenhuma URL para testar' });
-    }
-    
-    // Testar apenas a primeira URL
-    const testUrl = libraryUrls[0];
-    console.log(`🔍 Testando URL: ${testUrl}`);
-    
-    const result = await getCountFromUrl(testUrl);
-    console.log('🔍 Resultado do debug:', result);
-    
-    res.json({
-      success: true,
-      url: testUrl,
-      result: result,
-      timestamp: new Date().toISOString(),
-      totalLibraries: libraryUrls.length
-    });
-    
-  } catch (error) {
-    console.error('❌ Erro no debug de scraping:', error);
-    res.status(500).json({ 
-      error: 'Erro no debug de scraping',
-      message: error.message 
-    });
-  }
-});
+
 
 startScheduler({ 
   cronExpr: '*/5 * * * *', // A cada 5 minutos
