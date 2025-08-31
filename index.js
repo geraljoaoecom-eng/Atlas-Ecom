@@ -98,34 +98,69 @@ app.post('/api/auth/login', (req, res) => {
     }
 });
 
-// Rota de debug pública para verificar scraping (sem autenticação)
-app.get('/api/debug-scraping', async (req, res) => {
+// Rota para atualizar manualmente o número de anúncios de uma biblioteca
+app.post('/api/update-count', async (req, res) => {
   try {
-    console.log('🔍 Debug de scraping público...');
+    const { libraryId, count } = req.body;
     
-    if (libraryUrls.length === 0) {
-      return res.json({ error: 'Nenhuma URL para testar' });
+    if (!libraryId || count === undefined) {
+      return res.status(400).json({ 
+        error: 'libraryId e count são obrigatórios' 
+      });
     }
     
-    // Testar apenas a primeira URL
-    const testUrl = libraryUrls[0];
-    console.log(`🔍 Testando URL: ${testUrl}`);
+    console.log(`📊 Atualizando biblioteca ${libraryId} com ${count} anúncios`);
     
-    const result = await getCountFromUrl(testUrl);
-    console.log('🔍 Resultado do debug:', result);
+    const librariesFile = path.join(__dirname, 'data', 'libraries.json');
+    if (!fs.pathExistsSync(librariesFile)) {
+      return res.status(404).json({ error: 'Arquivo de bibliotecas não encontrado' });
+    }
+    
+    const libraries = fs.readJsonSync(librariesFile);
+    const libraryIndex = libraries.findIndex(lib => lib.id === libraryId);
+    
+    if (libraryIndex === -1) {
+      return res.status(404).json({ error: 'Biblioteca não encontrada' });
+    }
+    
+    // Atualizar número de anúncios
+    libraries[libraryIndex].lastActiveAds = parseInt(count);
+    libraries[libraryIndex].lastUpdate = new Date().toISOString();
+    
+    // Adicionar ao histórico
+    if (!libraries[libraryIndex].history) {
+      libraries[libraryIndex].history = [];
+    }
+    
+    const today = new Date().toISOString().split('T')[0];
+    const existingEntry = libraries[libraryIndex].history.find(h => h.date === today);
+    
+    if (existingEntry) {
+      existingEntry.count = parseInt(count);
+      existingEntry.lastUpdate = new Date().toISOString();
+    } else {
+      libraries[libraryIndex].history.push({
+        date: today,
+        count: parseInt(count),
+        timestamp: new Date().toISOString()
+      });
+    }
+    
+    // Guardar alterações
+    fs.writeJsonSync(librariesFile, libraries, { spaces: 2 });
+    
+    console.log(`✅ Biblioteca ${libraries[libraryIndex].name} atualizada: ${count} anúncios`);
     
     res.json({
       success: true,
-      url: testUrl,
-      result: result,
-      timestamp: new Date().toISOString(),
-      totalLibraries: libraryUrls.length
+      library: libraries[libraryIndex],
+      message: 'Número de anúncios atualizado com sucesso'
     });
     
   } catch (error) {
-    console.error('❌ Erro no debug de scraping:', error);
+    console.error('❌ Erro ao atualizar número de anúncios:', error);
     res.status(500).json({ 
-      error: 'Erro no debug de scraping',
+      error: 'Erro interno do servidor',
       message: error.message 
     });
   }
