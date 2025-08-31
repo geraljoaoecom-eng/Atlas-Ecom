@@ -120,9 +120,9 @@ app.get('/api/test-scraping/:libraryId', async (req, res) => {
     
     console.log(`🧪 Testando scraping de: ${library.url}`);
     
-    // Importar e testar o scraper
-    const { scrapeFacebookAdsLibrary } = await import('./scraper-vercel.js');
-    const result = await scrapeFacebookAdsLibrary(library.url);
+                    // Importar e testar o scraper original
+                const { getCountFromUrl } = await import('./scraper.js');
+                const result = await getCountFromUrl(library.url);
     
     res.json({
       success: true,
@@ -221,8 +221,8 @@ app.post('/api/scrape-real', async (req, res) => {
     
     console.log(`🔍 Iniciando scraping real para biblioteca ${libraryId}`);
     
-    // Importar o scraper real
-    const { updateLibraryCountReal } = await import('./scraper-vercel.js');
+                    // Importar o scraper original
+                const { getCountFromUrl } = await import('./scraper.js');
     
     // Carregar bibliotecas
     const librariesFile = path.join(__dirname, 'data', 'libraries.json');
@@ -237,8 +237,8 @@ app.post('/api/scrape-real', async (req, res) => {
       return res.status(404).json({ error: 'Biblioteca não encontrada' });
     }
     
-    // Fazer scraping real
-    const result = await updateLibraryCountReal(libraryId, library.url);
+                    // Fazer scraping real
+                const result = await getCountFromUrl(library.url);
     
     if (result.success) {
       // Atualizar biblioteca com dados reais
@@ -302,8 +302,8 @@ app.post('/api/scrape-all-real', async (req, res) => {
   try {
     console.log('🚀 Iniciando scraping real de todas as bibliotecas...');
     
-    // Importar o scraper real
-    const { updateAllLibrariesReal } = await import('./scraper-vercel.js');
+                    // Importar o scraper original
+                const { getCountFromUrl } = await import('./scraper.js');
     
     // Carregar bibliotecas
     const librariesFile = path.join(__dirname, 'data', 'libraries.json');
@@ -320,8 +320,30 @@ app.post('/api/scrape-all-real', async (req, res) => {
       });
     }
     
-    // Fazer scraping real de todas as bibliotecas
-    const results = await updateAllLibrariesReal(libraries);
+                    // Fazer scraping real de todas as bibliotecas
+                const results = [];
+                for (const library of libraries) {
+                    try {
+                        const result = await getCountFromUrl(library.url);
+                        results.push({
+                            libraryId: library.id,
+                            libraryName: library.name,
+                            success: result.count !== null,
+                            count: result.count || 0,
+                            source: result.source || 'playwright-scraping'
+                        });
+                        
+                        // Pequena pausa entre requests
+                        await new Promise(resolve => setTimeout(resolve, 2000));
+                    } catch (error) {
+                        results.push({
+                            libraryId: library.id,
+                            libraryName: library.name,
+                            success: false,
+                            error: error.message
+                        });
+                    }
+                }
     
     // Atualizar bibliotecas com dados reais
     const updatedLibraries = [];

@@ -154,12 +154,15 @@ async function scrapeWithProfessionalService(url) {
         
         // Usar o serviço ScrapingBee (gratuito até 1000 requests/mês)
         const apiKey = 'demo'; // Chave demo gratuita
-        const scrapingUrl = `https://app.scrapingbee.com/api/v1/?api_key=${apiKey}&url=${encodeURIComponent(url)}&render_js=false&country_code=pt`;
+        const scrapingUrl = `https://app.scrapingbee.com/api/v1/?api_key=${apiKey}&url=${encodeURIComponent(url)}&render_js=false&country_code=pt&premium_proxy=true&block_resources=false`;
+        
+        console.log(`🔗 URL de scraping: ${scrapingUrl}`);
         
         const response = await fetch(scrapingUrl, {
             method: 'GET',
             headers: {
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                'User-Agent': getRandomUserAgent()
             }
         });
         
@@ -168,17 +171,71 @@ async function scrapeWithProfessionalService(url) {
         }
         
         const html = await response.text();
+        console.log(`✅ ScrapingBee retornou HTML: ${html.length} caracteres`);
+        
         const resultCount = extractResultCount(html);
         
-        return {
-            success: true,
-            count: resultCount,
-            source: 'vercel-professional-scraping',
-            html: html.substring(0, 500)
-        };
+        if (resultCount !== null) {
+            return {
+                success: true,
+                count: resultCount,
+                source: 'vercel-scrapingbee-api',
+                html: html.substring(0, 500)
+            };
+        } else {
+            throw new Error('Não foi possível extrair contagem do HTML');
+        }
         
     } catch (error) {
         console.error(`❌ Erro no serviço profissional: ${error.message}`);
+        
+        // Tentar ScrapingAnt como alternativa
+        return await scrapeWithScrapingAnt(url);
+    }
+}
+
+// Método usando ScrapingAnt como alternativa
+async function scrapeWithScrapingAnt(url) {
+    try {
+        console.log(`🔄 Tentando ScrapingAnt como alternativa para: ${url}`);
+        
+        // Usar o serviço ScrapingAnt (gratuito até 100 requests/mês)
+        const apiKey = 'demo'; // Chave demo gratuita
+        const scrapingUrl = `https://api.scrapingant.com/v2/general?url=${encodeURIComponent(url)}&x-api-key=${apiKey}&browser=false`;
+        
+        console.log(`🔗 URL de ScrapingAnt: ${scrapingUrl}`);
+        
+        const response = await fetch(scrapingUrl, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        console.log(`✅ ScrapingAnt retornou dados:`, data);
+        
+        if (data.content) {
+            const resultCount = extractResultCount(data.content);
+            
+            if (resultCount !== null) {
+                return {
+                    success: true,
+                    count: resultCount,
+                    source: 'vercel-scrapingant-api',
+                    html: data.content.substring(0, 500)
+                };
+            }
+        }
+        
+        throw new Error('ScrapingAnt não retornou conteúdo válido');
+        
+    } catch (error) {
+        console.error(`❌ Erro no ScrapingAnt: ${error.message}`);
         
         // Último recurso: usar dados históricos como fallback
         return await scrapeWithHistoricalData(url);

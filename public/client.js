@@ -282,8 +282,8 @@ async function updateAllLibraryCounts() {
     console.log('🔄 Atualizando contadores de todas as bibliotecas com dados REAIS...');
     
     try {
-        // Usar a nova API de scraping real
-        const response = await authenticatedFetch('/api/scrape-all-real', {
+                    // Usar a API de scraping original
+            const response = await authenticatedFetch('/api/scrape-all-real', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -2289,5 +2289,100 @@ function createLibraryChart(data) {
     canvas.addEventListener('mouseleave', () => {
         tooltip.style.display = 'none';
     });
+}
+
+// Função para mostrar modal de edição de número de anúncios
+function showEditAdsModal(libraryId, currentCount, libraryName) {
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Editar Número de Anúncios</h3>
+                <span class="close" onclick="this.parentElement.parentElement.parentElement.remove()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p><strong>Biblioteca:</strong> ${libraryName}</p>
+                <p><strong>Número atual:</strong> ${currentCount}</p>
+                <div class="form-group">
+                    <label for="newAdsCount">Novo número de anúncios:</label>
+                    <input type="number" id="newAdsCount" value="${currentCount}" min="0" required>
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn-primary" onclick="updateAdsCount(${libraryId}, '${libraryName}')">
+                        <span class="btn-icon">💾</span>
+                        Atualizar
+                    </button>
+                    <button class="btn btn-secondary" onclick="this.parentElement.parentElement.parentElement.parentElement.remove()">
+                        <span class="btn-icon">❌</span>
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    // Focar no input
+    setTimeout(() => {
+        document.getElementById('newAdsCount').focus();
+    }, 100);
+}
+
+// Função para atualizar o número de anúncios
+async function updateAdsCount(libraryId, libraryName) {
+    const newCount = parseInt(document.getElementById('newAdsCount').value);
+    
+    if (isNaN(newCount) || newCount < 0) {
+        showErrorMessage('Por favor, insere um número válido maior ou igual a 0.');
+        return;
+    }
+    
+    try {
+        console.log(`🔄 Atualizando biblioteca ${libraryId} com ${newCount} anúncios`);
+        
+        // Mostrar status
+        showStatus('🔄 Atualizando número de anúncios...', 'info');
+        
+        // Chamar API para atualizar
+        const response = await authenticatedFetch('/api/update-count', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                libraryId: libraryId,
+                count: newCount
+            })
+        });
+        
+        if (response.ok) {
+            const data = await response.json();
+            
+            if (data.success) {
+                // Atualizar display
+                updateLibraryCountDisplay(libraryId, newCount);
+                
+                // Mostrar sucesso
+                showStatus(`✅ ${libraryName} atualizada com ${newCount} anúncios!`, 'success');
+                
+                // Fechar modal
+                document.querySelector('.modal').remove();
+                
+                // Recarregar bibliotecas para mostrar dados atualizados
+                await loadLibraries();
+                
+            } else {
+                throw new Error(data.error || 'Erro desconhecido');
+            }
+        } else {
+            throw new Error('Erro na resposta do servidor');
+        }
+        
+    } catch (error) {
+        console.error('❌ Erro ao atualizar número de anúncios:', error);
+        showErrorMessage('Erro ao atualizar: ' + error.message);
+    }
 }
 

@@ -25,7 +25,7 @@ async function withContext(fn) {
   const isVercel = process.env.VERCEL === '1';
   
   if (isVercel) {
-    // No Vercel, usar launch sem contexto persistente
+    // No Vercel, usar launch sem contexto persistente com configurações otimizadas
     const browser = await chromium.launch({
       headless: true,
       args: [
@@ -37,6 +37,21 @@ async function withContext(fn) {
         '--disable-plugins',
         '--disable-images',
         '--disable-javascript',
+        '--disable-gpu',
+        '--disable-software-rasterizer',
+        '--disable-background-timer-throttling',
+        '--disable-backgrounding-occluded-windows',
+        '--disable-renderer-backgrounding',
+        '--disable-ipc-flooding-protection',
+        '--no-first-run',
+        '--no-default-browser-check',
+        '--disable-default-apps',
+        '--disable-sync',
+        '--disable-translate',
+        '--hide-scrollbars',
+        '--mute-audio',
+        '--no-zygote',
+        '--single-process',
         `--lang=${LANG_HINT}`
       ]
     });
