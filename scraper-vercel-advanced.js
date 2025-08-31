@@ -57,12 +57,22 @@ async function scrapeFacebookAdsLibrary(url) {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 segundos timeout
         
-        const response = await fetch(url, {
+        // Tentar primeiro sem headers especiais
+        let response = await fetch(url, {
             method: 'GET',
-            headers: headers,
             redirect: 'follow',
             signal: controller.signal
         });
+        
+        // Se falhar, tentar com headers
+        if (!response.ok) {
+            response = await fetch(url, {
+                method: 'GET',
+                headers: headers,
+                redirect: 'follow',
+                signal: controller.signal
+            });
+        }
         
         clearTimeout(timeoutId);
         
