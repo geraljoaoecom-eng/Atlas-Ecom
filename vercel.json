@@ -35,5 +35,6 @@
       "source": "/",
       "destination": "/index.js"
     }
-  ]
+  ],
+  "buildCommand": "npm run vercel-build"
 }
