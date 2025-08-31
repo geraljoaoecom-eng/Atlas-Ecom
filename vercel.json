@@ -8,8 +8,24 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/api/(.*)",
       "dest": "/index.js"
+    },
+    {
+      "src": "/dashboard",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/login",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/(.*\\.(js|css|html|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
+      "dest": "/public/$1"
     }
   ]
 }
