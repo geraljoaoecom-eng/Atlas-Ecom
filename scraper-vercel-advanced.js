@@ -108,6 +108,16 @@ async function scrapeFacebookAdsLibrary(url) {
             });
         }
         
+        // Se ainda falhar, tentar com método PUT
+        if (!response.ok) {
+            response = await fetch(url, {
+                method: 'PUT',
+                headers: headers,
+                redirect: 'follow',
+                signal: controller.signal
+            });
+        }
+        
         clearTimeout(timeoutId);
         
         if (!response.ok) {
