@@ -36,33 +36,12 @@ async function scrapeFacebookAdsLibrary(url) {
     try {
         console.log(`🔍 Fazendo scraping direto de: ${url}`);
         
-        // Configurar headers para parecer um browser real com técnicas anti-detecção
+        // Headers simples para parecer um browser normal
         const headers = {
             'User-Agent': getRandomUserAgent(),
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
             'Accept-Language': 'pt-PT,pt;q=0.9,en;q=0.8',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'DNT': '1',
-            'Connection': 'keep-alive',
-            'Upgrade-Insecure-Requests': '1',
-            'Sec-Fetch-Dest': 'document',
-            'Sec-Fetch-Mode': 'navigate',
-            'Sec-Fetch-Site': 'none',
-            'Cache-Control': 'max-age=0',
-            'Referer': 'https://www.facebook.com/',
-            'Origin': 'https://www.facebook.com',
-            'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
-            'sec-ch-ua-mobile': '?0',
-            'sec-ch-ua-platform': '"Windows"',
-            'Sec-Fetch-User': '?1',
-            'X-Requested-With': 'XMLHttpRequest',
-            'X-Forwarded-For': '192.168.1.1',
-            'X-Real-IP': '192.168.1.1',
-            'CF-Connecting-IP': '192.168.1.1',
-            'CF-IPCountry': 'PT',
-            'CF-Visitor': '{"scheme":"https"}',
-            'CF-Ray': '1234567890abcdef',
-            'CF-Cache-Status': 'DYNAMIC'
+            'Referer': 'https://www.facebook.com/'
         };
         
         // Fazer request para o Facebook com timeout e técnicas anti-detecção
@@ -224,20 +203,12 @@ function extractResultCount(html) {
     try {
         console.log('🔍 Analisando HTML para extrair contagem...');
         
-        // Padrões específicos do Facebook Ads Library (baseados na imagem real)
+        // Padrão EXATO do Facebook: "~3 resultados" (como na imagem)
         const patterns = [
             // Padrão principal: "~3 resultados" (exatamente como na imagem)
             /~(\d+)\s+resultados?/i,
             // Padrão alternativo: "3 resultados" (sem ~)
-            /(\d+)\s+resultados?/i,
-            // Padrão em inglês: "~3 results"
-            /~(\d+)\s+results?/i,
-            // Padrão em inglês: "3 results"
-            /(\d+)\s+results?/i,
-            // Padrão com contexto: "resultados: ~3"
-            /resultados?\s*:\s*~?(\d+)/i,
-            // Padrão com contexto: "results: ~3"
-            /results?\s*:\s*~?(\d+)/i
+            /(\d+)\s+resultados?/i
         ];
         
         for (const pattern of patterns) {
@@ -251,46 +222,8 @@ function extractResultCount(html) {
             }
         }
         
-        // Procurar por números em contexto mais amplo
-        const contextPatterns = [
-            // "resultados: ~3" ou "results: ~3"
-            /(?:resultados?|results?)\s*[~:]\s*(\d+)/i,
-            // "3 anúncios" ou "3 ads"
-            /(\d+)\s+(?:anúncios?|ads?)/i,
-            // "encontrados 3" ou "found 3"
-            /(?:encontrados?|found)\s+(\d+)/i
-        ];
-        
-        for (const pattern of contextPatterns) {
-            const match = html.match(pattern);
-            if (match && match[1]) {
-                const count = parseInt(match[1]);
-                if (!isNaN(count) && count > 0) {
-                    console.log(`✅ Padrão de contexto encontrado: "${match[0]}" -> ${count}`);
-                    return count;
-                }
-            }
-        }
-        
         // Debug: mostrar parte do HTML para análise
         console.log('🔍 HTML analisado (primeiros 1000 chars):', html.substring(0, 1000));
-        
-        // Procurar por qualquer número que possa ser um contador
-        const numberPatterns = [
-            /(\d{2,4})\s*(?:resultados?|results?|anúncios?|ads?)/i,
-            /(?:resultados?|results?|anúncios?|ads?)\s*(\d{2,4})/i
-        ];
-        
-        for (const pattern of numberPatterns) {
-            const match = html.match(pattern);
-            if (match && match[1]) {
-                const count = parseInt(match[1]);
-                if (!isNaN(count) && count > 10) { // Números maiores que 10 são mais prováveis de serem contadores
-                    console.log(`✅ Padrão de número encontrado: "${match[0]}" -> ${count}`);
-                    return count;
-                }
-            }
-        }
         
         console.log('❌ Nenhum padrão de contagem encontrado');
         return null;
